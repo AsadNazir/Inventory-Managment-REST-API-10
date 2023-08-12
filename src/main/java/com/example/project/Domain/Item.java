@@ -1,19 +1,21 @@
 package com.example.project.Domain;
 
-import com.example.project.Services.CategorySQL;
-import com.example.project.Services.LocationSQL;
+import java.io.Serializable;
 
-public class Item {
-    int item_id;
+public class Item implements Serializable {
+    int id;
     String item_name;
     int item_quantity;
 
-    public int getItem_id() {
-        return item_id;
+    public Item() {
     }
 
-    public void setItem_id(int item_id) {
-        this.item_id = item_id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getItem_name() {
@@ -48,12 +50,23 @@ public class Item {
         this.item_category = item_category;
     }
 
-    public Item(int item_id, String item_name, int item_quantity, Location item_location, Category item_category) {
-        this.item_id = item_id;
+    public Item(int id, String item_name, int item_quantity, Location item_location, Category item_category) {
+        this.id = id;
         this.item_name = item_name;
         this.item_quantity = item_quantity;
         this.item_location = item_location;
         this.item_category = item_category;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", item_name='" + item_name + '\'' +
+                ", item_quantity=" + item_quantity +
+                ", item_location=" + item_location +
+                ", item_category=" + item_category +
+                '}';
     }
 
     Location item_location;

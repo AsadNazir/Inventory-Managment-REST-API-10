@@ -1,13 +1,11 @@
 package com.example.project.Services;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.project.Domain.Category;
 import com.example.project.Domain.Location;
-import com.example.project.Domain.NewItem;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.example.project.Domain.Item;
@@ -27,7 +25,7 @@ public class InventoryService {
     }
 
     public String getAll() {
-        List<NewItem> itemsFormatted = new ArrayList<>();
+        List<Item> itemsFormatted = new ArrayList<Item>();
 
         try {
             PreparedStatement statement = this.C.prepareStatement(ItemSQL.getAll);
@@ -41,10 +39,10 @@ public class InventoryService {
                 int locationId = resultSet.getInt("item_location_id");
 
 
-                Category category = getCategoryById(categoryId);
-                Location location = getLocationById(locationId);
+                Category category = new CategoryService().getCategoryById(categoryId);
+                Location location = new LocationService().getLocationById(locationId);
 
-                NewItem newItem = new NewItem(itemId, itemName, itemQuantity, location, category);
+                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
                 itemsFormatted.add(newItem);
             }
 
@@ -52,7 +50,7 @@ public class InventoryService {
             // Convert the List of items to the requested JSON format using Jackson
             ObjectMapper objectMapper = new ObjectMapper();
 
-
+            this.C.close();
             //Error JSON
             if (itemsFormatted.isEmpty())
                 return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB").getError_message());
@@ -67,7 +65,7 @@ public class InventoryService {
     }
 
     public String getRecordbyId(int id) {
-        List<NewItem> itemsFormatted = new ArrayList<>();
+        List<Item> itemsFormatted = new ArrayList<>();
 
         try {
             PreparedStatement statement = this.C.prepareStatement(ItemSQL.getById);
@@ -82,16 +80,16 @@ public class InventoryService {
                 int locationId = resultSet.getInt("item_location_id");
 
 
-                Category category = getCategoryById(categoryId);
-                Location location = getLocationById(locationId);
+                Category category = new CategoryService().getCategoryById(categoryId);
+                Location location = new LocationService().getLocationById(locationId);
 
-                NewItem newItem = new NewItem(itemId, itemName, itemQuantity, location, category);
+                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
                 itemsFormatted.add(newItem);
             }
 
             // Convert the List of items to the requested JSON format using Jackson
             ObjectMapper objectMapper = new ObjectMapper();
-
+            this.C.close();
             //Error JSON
             if (itemsFormatted.isEmpty())
                 return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB").getError_message());
@@ -107,7 +105,7 @@ public class InventoryService {
 
 
     public String getItemsByCategory(int id) {
-        List<NewItem> itemsFormatted = new ArrayList<>();
+        List<Item> itemsFormatted = new ArrayList<Item>();
 
         try {
             PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByCategory);
@@ -121,19 +119,20 @@ public class InventoryService {
                 int categoryId = resultSet.getInt("item_category_id");
                 int locationId = resultSet.getInt("item_location_id");
 
-                Category category = getCategoryById(categoryId);
-                Location location = getLocationById(locationId);
+                Category category = new CategoryService().getCategoryById(categoryId);
+                Location location = new LocationService().getLocationById(locationId);
 
-                NewItem newItem = new NewItem(itemId, itemName, itemQuantity, location, category);
+                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
                 itemsFormatted.add(newItem);
             }
 
             // Convert the List of items to the requested JSON format using Jackson
             ObjectMapper objectMapper = new ObjectMapper();
 
+            this.C.close();
             //Error JSON
             if (itemsFormatted.isEmpty())
-                return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB").getError_message());
+                return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB"));
 
             return objectMapper.writeValueAsString(itemsFormatted);
 
@@ -145,7 +144,7 @@ public class InventoryService {
     }
 
     public String getItemsByLocation(int id) {
-        List<NewItem> itemsFormatted = new ArrayList<>();
+        List<Item> itemsFormatted = new ArrayList<Item>();
 
         try {
             PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByLocation);
@@ -160,13 +159,14 @@ public class InventoryService {
                 int locationId = resultSet.getInt("item_location_id");
 
 
-                Category category = getCategoryById(categoryId);
-                Location location = getLocationById(locationId);
+                Category category = new CategoryService().getCategoryById(categoryId);
+                Location location = new LocationService().getLocationById(locationId);
 
-                NewItem newItem = new NewItem(itemId, itemName, itemQuantity, location, category);
+                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
                 itemsFormatted.add(newItem);
             }
 
+            this.C.close();
             // Convert the List of items to the requested JSON format using Jackson
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(itemsFormatted);
@@ -179,7 +179,7 @@ public class InventoryService {
     }
 
     public String getItemByLocationAndCategory(int loc_id, int cat_id) {
-        List<NewItem> itemsFormatted = new ArrayList<>();
+        List<Item> itemsFormatted = new ArrayList<Item>();
 
         try {
             PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByLocationAndCategory);
@@ -194,14 +194,15 @@ public class InventoryService {
                 int categoryId = resultSet.getInt("item_category_id");
                 int locationId = resultSet.getInt("item_location_id");
 
-                Category category = getCategoryById(categoryId);
-                Location location = getLocationById(locationId);
+                Category category = new CategoryService().getCategoryById(categoryId);
+                Location location = new LocationService().getLocationById(locationId);
 
-                NewItem newItem = new NewItem(itemId, itemName, itemQuantity, location, category);
+                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
                 itemsFormatted.add(newItem);
             }
 
-            // Convert the List of items to the requested JSON format using Jackson
+            this.C.close();
+            // Convert the List of items to the JSON format using Jackson
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(itemsFormatted);
 
@@ -212,46 +213,121 @@ public class InventoryService {
         return null;
     }
 
-    private Category getCategoryById(int categoryId) {
-        // Implement your logic to retrieve a Category by its ID
+    public String InsertItem(Item item) {
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            PreparedStatement statement = this.C.prepareStatement(CategorySQL.get);
-            statement.setInt(1, categoryId);
-            ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                String categoryName = resultSet.getString("category_name");
-                return new Category(categoryId, categoryName);
+            Category C = new CategoryService().getCategoryById(item.getItem_category().getId());
+            Location L = new LocationService().getLocationById(item.getItem_location().getId());
+            if (C == null || L == null) {
+                return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload"));
+            }
+            PreparedStatement statement = this.C.prepareStatement(ItemSQL.insert);
+            statement.setString(1, item.getItem_name());
+            statement.setInt(2, item.getItem_quantity());
+            statement.setInt(3, item.getItem_category().getId());
+            statement.setInt(4, item.getItem_location().getId());
+
+            int rowsAffected = statement.executeUpdate();
+
+
+            this.C.close();
+
+            if (rowsAffected > 0) {
+                return objectMapper.writeValueAsString(new ResponseMessage("OK"));
             }
 
-        } catch (SQLException e) {
+            return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload"));
+
+        } catch (Exception e) {
             e.printStackTrace();
+
         }
 
         return null;
     }
 
-    private Location getLocationById(int locationId) {
-        // Implement your logic to retrieve a Location by its ID
+    public String updateItem(int id, Item item) {
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            PreparedStatement statement = this.C.prepareStatement(LocationSQL.get);
-            statement.setInt(1, locationId);
-            ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                String locationName = resultSet.getString("location_name");
-                return new Location(locationId, locationName);
+            Category C = new CategoryService().getCategoryById(item.getItem_category().getId());
+            Location L = new LocationService().getLocationById(item.getItem_location().getId());
+
+            if (C == null || L == null) {
+                return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload").getError_message());
             }
 
-        } catch (SQLException e) {
+            PreparedStatement statement = this.C.prepareStatement(ItemSQL.update);
+            statement.setString(1, item.getItem_name());
+            statement.setInt(2, item.getItem_quantity());
+            statement.setInt(3, item.getItem_category().getId());
+            statement.setInt(4, item.getItem_location().getId());
+            statement.setInt(5, id);
+
+            int rowsAffected = statement.executeUpdate();
+
+
+            if (rowsAffected > 0) {
+                return objectMapper.writeValueAsString(new ResponseMessage("OK"));
+            }
+
+            this.C.close();
+
+            return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload"));
+
+        } catch (Exception e) {
             e.printStackTrace();
+
         }
+
+
+        return null;
+
+    }
+
+    public String deleteItem(int id) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            PreparedStatement statement = this.C.prepareStatement(ItemSQL.delete);
+            statement.setInt(1, id);
+            int rowsAffected = statement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                return objectMapper.writeValueAsString(new ResponseMessage("OK"));
+            }
+
+            this.C.close();
+
+            return objectMapper.writeValueAsString(new ErrorMessage("Invalid ID"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
 
         return null;
     }
+
 
 }
 
+class ResponseMessage {
+    private String message;
+
+    public ResponseMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
 
 class ErrorMessage {
     private String error_message;

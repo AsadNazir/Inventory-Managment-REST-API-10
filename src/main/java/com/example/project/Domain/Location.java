@@ -1,7 +1,13 @@
 package com.example.project.Domain;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable{
     int id;
+
+    public Location() {
+    }
+
     String location_name;
 
     public int getId() {
@@ -10,6 +16,14 @@ public class Location {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", location_name='" + location_name + '\'' +
+                '}';
     }
 
     public String getLocation_name() {

@@ -1,7 +1,20 @@
 package com.example.project.Domain;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
     int id;
+
+    public Category() {
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", category_name='" + category_name + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
