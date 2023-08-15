@@ -3,33 +3,42 @@ package com.example.project.Services;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.example.project.Domain.Category;
 import com.example.project.Domain.Location;
+import com.example.project.commons.Db;
+import com.example.project.commons.ItemSQL;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.example.project.Domain.Item;
+import com.github.benmanes.caffeine.cache.Cache;
 
 public class InventoryService {
 
-    Connection C;
+    Cache<Integer, Item> cache;
 
-    public InventoryService() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            C = Db.getDataSource().getConnection();
-        } catch (Exception E) {
-            E.printStackTrace();
-        }
+    public InventoryService(Cache<Integer, Item> Cache) {
+        cache = Cache;
 
     }
 
     public String getAll() {
-        List<Item> itemsFormatted = new ArrayList<Item>();
+        List<Item> itemsFormatted = new ArrayList<>();
+// Convert the List of items to the requested JSON format using Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.getAll);
-            ResultSet resultSet = statement.executeQuery();
+
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getAll);
+                ResultSet resultSet = statement.executeQuery();
+
+        ) {
+
+
+
 
             while (resultSet.next()) {
                 int itemId = resultSet.getInt("id");
@@ -43,14 +52,14 @@ public class InventoryService {
                 Location location = new LocationService().getLocationById(locationId);
 
                 Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
+                // Store the retrieved data in the cache
+
+                if(cache.getIfPresent(itemId)==null)
+                    cache.put(itemId, newItem);
+
                 itemsFormatted.add(newItem);
+
             }
-
-
-            // Convert the List of items to the requested JSON format using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            this.C.close();
             //Error JSON
             if (itemsFormatted.isEmpty())
                 return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB").getError_message());
@@ -67,29 +76,57 @@ public class InventoryService {
     public String getRecordbyId(int id) {
         List<Item> itemsFormatted = new ArrayList<>();
 
+        // Convert the List of items to the requested JSON format using Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
+        if(cache.estimatedSize()>0) System.out.println("Greater than 0");
+
+
         try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.getById);
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
+            Item cachedItem = cache.getIfPresent(id);
 
-            while (resultSet.next()) {
-                int itemId = resultSet.getInt("id");
-                String itemName = resultSet.getString("item_name");
-                int itemQuantity = resultSet.getInt("item_quantity");
-                int categoryId = resultSet.getInt("item_category_id");
-                int locationId = resultSet.getInt("item_location_id");
-
-
-                Category category = new CategoryService().getCategoryById(categoryId);
-                Location location = new LocationService().getLocationById(locationId);
-
-                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
-                itemsFormatted.add(newItem);
+            if (cachedItem != null) {
+                System.out.println(cachedItem.toString());
+                System.out.println("Present");
+                // Return cached data
+                return objectMapper.writeValueAsString(cachedItem);
             }
 
-            // Convert the List of items to the requested JSON format using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
-            this.C.close();
+            System.out.println("not present");
+
+        } catch (Exception E) {
+            E.printStackTrace();
+        }
+
+        //Try with resources
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
+
+        ) {
+
+            statement.setInt(1, id);  // Set the parameter here
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+
+
+                while (resultSet.next()) {
+                    int itemId = resultSet.getInt("id");
+                    String itemName = resultSet.getString("item_name");
+                    int itemQuantity = resultSet.getInt("item_quantity");
+                    int categoryId = resultSet.getInt("item_category_id");
+                    int locationId = resultSet.getInt("item_location_id");
+
+
+                    Category category = new CategoryService().getCategoryById(categoryId);
+                    Location location = new LocationService().getLocationById(locationId);
+
+                    Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
+                    itemsFormatted.add(newItem);
+                    // Store the retrieved data in the cache
+                    cache.put(itemId, newItem);
+                }
+            }
+
             //Error JSON
             if (itemsFormatted.isEmpty())
                 return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB").getError_message());
@@ -98,6 +135,8 @@ public class InventoryService {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+
         }
 
         return null;
@@ -105,34 +144,61 @@ public class InventoryService {
 
 
     public String getItemsByCategory(int id) {
-        List<Item> itemsFormatted = new ArrayList<Item>();
+        List<Item> itemsFormatted = new ArrayList<>();
+        // Convert the List of items to the requested JSON format using Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByCategory);
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
+            Map<Integer, Item> cachedItems = cache.asMap();
+            if (cachedItems != null) {
+                for (Map.Entry<Integer, Item> entry : cachedItems.entrySet()) {
 
-            while (resultSet.next()) {
-                int itemId = resultSet.getInt("id");
-                String itemName = resultSet.getString("item_name");
-                int itemQuantity = resultSet.getInt("item_quantity");
-                int categoryId = resultSet.getInt("item_category_id");
-                int locationId = resultSet.getInt("item_location_id");
+                    Item value = entry.getValue();
 
-                Category category = new CategoryService().getCategoryById(categoryId);
-                Location location = new LocationService().getLocationById(locationId);
+                    if (value.getItem_category().getId() == id) {
+                        System.out.println(value.toString());
+                        return objectMapper.writeValueAsString(value);
+                    }
+                }
 
-                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
-                itemsFormatted.add(newItem);
             }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
-            // Convert the List of items to the requested JSON format using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
 
-            this.C.close();
+        ) {
+
+            statement.setInt(1, id);
+
+            //Try with resources
+            try (
+                    ResultSet resultSet = statement.executeQuery();
+
+            ) {
+
+                while (resultSet.next()) {
+                    int itemId = resultSet.getInt("id");
+                    String itemName = resultSet.getString("item_name");
+                    int itemQuantity = resultSet.getInt("item_quantity");
+                    int categoryId = resultSet.getInt("item_category_id");
+                    int locationId = resultSet.getInt("item_location_id");
+
+                    Category category = new CategoryService().getCategoryById(categoryId);
+                    Location location = new LocationService().getLocationById(locationId);
+
+                    Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
+                    itemsFormatted.add(newItem);
+                    // Store the retrieved data in the cache
+                    cache.put(itemId, newItem);
+                }
+
+            }
             //Error JSON
-            if (itemsFormatted.isEmpty())
-                return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB"));
+            if (itemsFormatted.isEmpty()) return objectMapper.writeValueAsString(new ErrorMessage("No Records In DB"));
 
             return objectMapper.writeValueAsString(itemsFormatted);
 
@@ -144,31 +210,59 @@ public class InventoryService {
     }
 
     public String getItemsByLocation(int id) {
-        List<Item> itemsFormatted = new ArrayList<Item>();
+        List<Item> itemsFormatted = new ArrayList<>();
 
+        // Convert the List of items to the requested JSON format using Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByLocation);
+
+            Map<Integer, Item> cachedItems = cache.asMap();
+            if (cachedItems != null) {
+                for (Map.Entry<Integer, Item> entry : cachedItems.entrySet()) {
+
+                    Item value = entry.getValue();
+
+                    if (value.getItem_location().getId() == id) {
+                        return objectMapper.writeValueAsString(value);
+                    }
+                }
+
+            }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        //Try with resources
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
+
+        ) {
+
             statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                int itemId = resultSet.getInt("id");
-                String itemName = resultSet.getString("item_name");
-                int itemQuantity = resultSet.getInt("item_quantity");
-                int categoryId = resultSet.getInt("item_category_id");
-                int locationId = resultSet.getInt("item_location_id");
+            try (ResultSet resultSet = statement.executeQuery()) {
 
 
-                Category category = new CategoryService().getCategoryById(categoryId);
-                Location location = new LocationService().getLocationById(locationId);
+                while (resultSet.next()) {
+                    int itemId = resultSet.getInt("id");
+                    String itemName = resultSet.getString("item_name");
+                    int itemQuantity = resultSet.getInt("item_quantity");
+                    int categoryId = resultSet.getInt("item_category_id");
+                    int locationId = resultSet.getInt("item_location_id");
 
-                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
-                itemsFormatted.add(newItem);
+
+                    Category category = new CategoryService().getCategoryById(categoryId);
+                    Location location = new LocationService().getLocationById(locationId);
+
+                    Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
+                    itemsFormatted.add(newItem);
+
+                    // Store the retrieved data in the cache
+                    cache.put(itemId, newItem);
+                }
             }
 
-            this.C.close();
-            // Convert the List of items to the requested JSON format using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(itemsFormatted);
 
         } catch (Exception e) {
@@ -179,31 +273,55 @@ public class InventoryService {
     }
 
     public String getItemByLocationAndCategory(int loc_id, int cat_id) {
-        List<Item> itemsFormatted = new ArrayList<Item>();
+        List<Item> itemsFormatted = new ArrayList<>();
+        // Convert the List of items to the requested JSON format using Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.getByLocationAndCategory);
+
+            Map<Integer, Item> cachedItems = cache.asMap();
+            if (cachedItems != null) {
+                for (Map.Entry<Integer, Item> entry : cachedItems.entrySet()) {
+
+                    Item value = entry.getValue();
+
+                    if (value.getItem_category().getId() == cat_id && value.getItem_location().getId() == loc_id) {
+                        return objectMapper.writeValueAsString(value);
+                    }
+                }
+
+            }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
+
+        ) {
+
             statement.setInt(1, loc_id);
             statement.setInt(2, cat_id);
-            ResultSet resultSet = statement.executeQuery();
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    int itemId = resultSet.getInt("id");
+                    String itemName = resultSet.getString("item_name");
+                    int itemQuantity = resultSet.getInt("item_quantity");
+                    int categoryId = resultSet.getInt("item_category_id");
+                    int locationId = resultSet.getInt("item_location_id");
 
-            while (resultSet.next()) {
-                int itemId = resultSet.getInt("id");
-                String itemName = resultSet.getString("item_name");
-                int itemQuantity = resultSet.getInt("item_quantity");
-                int categoryId = resultSet.getInt("item_category_id");
-                int locationId = resultSet.getInt("item_location_id");
+                    Category category = new CategoryService().getCategoryById(categoryId);
+                    Location location = new LocationService().getLocationById(locationId);
 
-                Category category = new CategoryService().getCategoryById(categoryId);
-                Location location = new LocationService().getLocationById(locationId);
+                    Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
+                    itemsFormatted.add(newItem);
 
-                Item newItem = new Item(itemId, itemName, itemQuantity, location, category);
-                itemsFormatted.add(newItem);
+                    // Store the retrieved data in the cache
+                    cache.put(itemId, newItem);
+                }
             }
 
-            this.C.close();
-            // Convert the List of items to the JSON format using Jackson
-            ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(itemsFormatted);
 
         } catch (Exception e) {
@@ -215,24 +333,24 @@ public class InventoryService {
 
     public String InsertItem(Item item) {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
 
-            Category C = new CategoryService().getCategoryById(item.getItem_category().getId());
+        ) {
+
+            Category Cat = new CategoryService().getCategoryById(item.getItem_category().getId());
             Location L = new LocationService().getLocationById(item.getItem_location().getId());
-            if (C == null || L == null) {
+            if (Cat == null || L == null) {
                 return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload"));
             }
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.insert);
+
             statement.setString(1, item.getItem_name());
             statement.setInt(2, item.getItem_quantity());
             statement.setInt(3, item.getItem_category().getId());
             statement.setInt(4, item.getItem_location().getId());
 
             int rowsAffected = statement.executeUpdate();
-
-
-            this.C.close();
-
             if (rowsAffected > 0) {
                 return objectMapper.writeValueAsString(new ResponseMessage("OK"));
             }
@@ -249,16 +367,19 @@ public class InventoryService {
 
     public String updateItem(int id, Item item) {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
 
-            Category C = new CategoryService().getCategoryById(item.getItem_category().getId());
+        ) {
+
+            Category Cat = new CategoryService().getCategoryById(item.getItem_category().getId());
             Location L = new LocationService().getLocationById(item.getItem_location().getId());
 
-            if (C == null || L == null) {
+            if (Cat == null || L == null) {
                 return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload").getError_message());
             }
 
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.update);
             statement.setString(1, item.getItem_name());
             statement.setInt(2, item.getItem_quantity());
             statement.setInt(3, item.getItem_category().getId());
@@ -272,7 +393,7 @@ public class InventoryService {
                 return objectMapper.writeValueAsString(new ResponseMessage("OK"));
             }
 
-            this.C.close();
+
 
             return objectMapper.writeValueAsString(new ErrorMessage("Invalid Payload"));
 
@@ -281,23 +402,24 @@ public class InventoryService {
 
         }
 
-
         return null;
 
     }
 
     public String deleteItem(int id) {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            PreparedStatement statement = this.C.prepareStatement(ItemSQL.delete);
+        try (
+                Connection C = Db.getDataSource();
+                PreparedStatement statement = C.prepareStatement(ItemSQL.getById);
+
+        ) {
+
             statement.setInt(1, id);
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected > 0) {
                 return objectMapper.writeValueAsString(new ResponseMessage("OK"));
             }
-
-            this.C.close();
 
             return objectMapper.writeValueAsString(new ErrorMessage("Invalid ID"));
 
@@ -320,9 +442,6 @@ class ResponseMessage {
         this.message = message;
     }
 
-    public String getMessage() {
-        return message;
-    }
 
     public void setMessage(String message) {
         this.message = message;

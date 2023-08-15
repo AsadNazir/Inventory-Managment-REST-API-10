@@ -1,6 +1,8 @@
 package com.example.project.Services;
 
 import com.example.project.Domain.Location;
+import com.example.project.commons.Db;
+import com.example.project.commons.LocationSQL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,12 +13,7 @@ public class LocationService {
     private Connection C;
     public LocationService()
     {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            C = Db.getDataSource().getConnection();
-        } catch (Exception E) {
-            E.printStackTrace();
-        }
+        C= Db.getDataSource();
     }
 
     public Location getLocationById(int locationId) {

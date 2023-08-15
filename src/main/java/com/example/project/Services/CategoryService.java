@@ -3,13 +3,15 @@ package com.example.project.Services;
 import java.sql.*;
 
 import com.example.project.Domain.Category;
+import com.example.project.commons.CategorySQL;
+import com.example.project.commons.Db;
 
 public class CategoryService {
     Connection C;
     public CategoryService() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            C = Db.getDataSource().getConnection();
+            C = Db.getDataSource();
         } catch (Exception E) {
             E.printStackTrace();
         }

@@ -1,52 +1,524 @@
-23:22:37.405 HikariPool-1 - Starting...
-23:22:38.173 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7487b142
-23:22:38.175 HikariPool-1 - Start completed.
-23:23:03.337 HikariPool-1 - Starting...
-23:23:04.041 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@81b5db0
-23:23:04.042 HikariPool-1 - Start completed.
-23:24:07.732 HikariPool-1 - Starting...
-23:24:08.599 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7487b142
-23:24:08.602 HikariPool-1 - Start completed.
-23:24:08.712 HikariPool-2 - Starting...
-23:24:08.742 HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14b7786
-23:24:08.743 HikariPool-2 - Start completed.
-23:24:08.754 HikariPool-3 - Starting...
-23:24:08.787 HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@468dda3e
-23:24:08.787 HikariPool-3 - Start completed.
-23:25:46.564 HikariPool-1 - Starting...
-23:25:47.422 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f139fc9
-23:25:47.425 HikariPool-1 - Start completed.
-23:27:13.574 HikariPool-1 - Starting...
-23:27:15.700 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b8280e6
-23:27:15.709 HikariPool-1 - Start completed.
-23:28:24.852 HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s299ms436µs).
-23:31:36.556 HikariPool-1 - Starting...
-23:31:37.372 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@81b5db0
-23:31:37.373 HikariPool-1 - Start completed.
-23:33:41.407 HikariPool-1 - Starting...
-23:33:42.319 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4339baec
-23:33:42.322 HikariPool-1 - Start completed.
-23:33:42.507 HikariPool-2 - Starting...
-23:33:42.539 HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a6fa56e
-23:33:42.539 HikariPool-2 - Start completed.
-23:33:42.551 HikariPool-3 - Starting...
-23:33:42.579 HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37df14d1
-23:33:42.579 HikariPool-3 - Start completed.
-23:33:59.909 HikariPool-1 - Starting...
-23:34:00.838 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4339baec
-23:34:00.841 HikariPool-1 - Start completed.
-23:34:00.964 HikariPool-2 - Starting...
-23:34:01.009 HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a6fa56e
-23:34:01.009 HikariPool-2 - Start completed.
-23:34:01.023 HikariPool-3 - Starting...
-23:34:01.060 HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bc042d5
-23:34:01.060 HikariPool-3 - Start completed.
-23:34:14.671 HikariPool-1 - Starting...
-23:34:15.679 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4339baec
-23:34:15.682 HikariPool-1 - Start completed.
-23:34:15.795 HikariPool-2 - Starting...
-23:34:15.831 HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a6fa56e
-23:34:15.832 HikariPool-2 - Start completed.
-23:34:15.849 HikariPool-3 - Starting...
-23:34:15.910 HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bc042d5
-23:34:15.910 HikariPool-3 - Start completed.
+22:00:11.005 cuckoo
+22:00:11.005 Tue Aug 15 22:00:11 PKT 2023_GET_GetALlItemsRequest
+22:00:11.068 HikariPool-1 - Starting...
+22:00:12.046 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a48acac
+22:00:12.046 HikariPool-1 - Start completed.
+22:00:21.727 cuckoo
+22:00:21.727 Tue Aug 15 22:00:21 PKT 2023_GET_GetALlItemsRequest
+22:00:23.668 cuckoo
+22:00:23.669 Tue Aug 15 22:00:23 PKT 2023_GET_GetALlItemsRequest
+22:00:24.624 cuckoo
+22:00:24.625 Tue Aug 15 22:00:24 PKT 2023_GET_GetALlItemsRequest
+22:00:49.660 cuckoo
+22:00:49.661 Tue Aug 15 22:00:49 PKT 2023_GET_GetALlItemsRequest
+22:00:50.430 cuckoo
+22:00:50.430 Tue Aug 15 22:00:50 PKT 2023_GET_GetALlItemsRequest
+22:00:51.146 cuckoo
+22:00:51.146 Tue Aug 15 22:00:51 PKT 2023_GET_GetALlItemsRequest
+22:00:51.826 cuckoo
+22:00:51.826 Tue Aug 15 22:00:51 PKT 2023_GET_GetALlItemsRequest
+22:00:52.605 cuckoo
+22:00:52.605 Tue Aug 15 22:00:52 PKT 2023_GET_GetALlItemsRequest
+22:00:53.243 cuckoo
+22:00:53.243 Tue Aug 15 22:00:53 PKT 2023_GET_GetALlItemsRequest
+22:00:53.850 cuckoo
+22:00:53.850 Tue Aug 15 22:00:53 PKT 2023_GET_GetALlItemsRequest
+22:01:00.777 cuckoo
+22:01:00.777 Tue Aug 15 22:01:00 PKT 2023_GET_GetALlItemsRequest
+22:01:00.777 Tue Aug 15 22:01:00 PKT 2023_GET_Unauthorized Access
+22:01:10.820 cuckoo
+22:01:10.820 Tue Aug 15 22:01:10 PKT 2023_GET_GetALlItemsRequest
+22:03:04.099 cuckoo
+22:03:04.099 Tue Aug 15 22:03:04 PKT 2023_GET_GetALlItemsRequest
+22:03:04.127 HikariPool-1 - Starting...
+22:03:05.141 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a31030e
+22:03:05.147 HikariPool-1 - Start completed.
+22:03:23.100 cuckoo
+22:03:23.100 Tue Aug 15 22:03:23 PKT 2023_GET_GetALlItemsRequest
+22:06:04.442 cuckoo
+22:06:04.443 Tue Aug 15 22:06:04 PKT 2023_GET_GetALlItemsRequest
+22:06:04.457 HikariPool-2 - Starting...
+22:06:05.620 HikariPool-2 - Exception during pool initialization.
+java.sql.SQLNonTransientConnectionException: Data source rejected establishment of connection,  message from server: "Too many connections"
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at com.example.project.Services.Db.getDataSource(Db.java:29)
+	at com.example.project.Services.UserService.getUser(UserService.java:19)
+	at com.example.project.Auth.authorize(Auth.java:24)
+	at com.example.project.Resources.InventoryResource.getAllItems(InventoryResource.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:146)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:189)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:93)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:478)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:400)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:261)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:240)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:697)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:357)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:311)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+22:06:05.628 Tue Aug 15 22:06:05 PKT 2023_GET_Unauthorized Access
+22:06:33.461 cuckoo
+22:06:33.463 Tue Aug 15 22:06:33 PKT 2023_GET_GetALlItemsRequest
+22:06:33.488 HikariPool-1 - Starting...
+22:06:34.072 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57eb98eb
+22:06:34.075 HikariPool-1 - Start completed.
+22:06:42.224 cuckoo
+22:06:42.224 Tue Aug 15 22:06:42 PKT 2023_GET_GetALlItemsRequest
+22:06:59.480 cuckoo
+22:06:59.480 Tue Aug 15 22:06:59 PKT 2023_GET_GetALlItemsRequest
+22:07:00.927 cuckoo
+22:07:00.927 Tue Aug 15 22:07:00 PKT 2023_GET_GetALlItemsRequest
+22:07:01.659 cuckoo
+22:07:01.659 Tue Aug 15 22:07:01 PKT 2023_GET_GetALlItemsRequest
+22:07:02.316 cuckoo
+22:07:02.316 Tue Aug 15 22:07:02 PKT 2023_GET_GetALlItemsRequest
+22:07:03.035 cuckoo
+22:07:03.035 Tue Aug 15 22:07:03 PKT 2023_GET_GetALlItemsRequest
+22:07:03.642 cuckoo
+22:07:03.642 Tue Aug 15 22:07:03 PKT 2023_GET_GetALlItemsRequest
+22:07:04.246 cuckoo
+22:07:04.246 Tue Aug 15 22:07:04 PKT 2023_GET_GetALlItemsRequest
+22:07:04.978 cuckoo
+22:07:04.978 Tue Aug 15 22:07:04 PKT 2023_GET_GetALlItemsRequest
+22:11:21.327 cuckoo
+22:11:21.329 Tue Aug 15 22:11:21 PKT 2023_GET_GetALlItemsRequest
+22:11:21.357 HikariPool-1 - Starting...
+22:11:21.915 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a31030e
+22:11:21.918 HikariPool-1 - Start completed.
+22:11:24.533 cuckoo
+22:11:24.533 Tue Aug 15 22:11:24 PKT 2023_GET_GetALlItemsRequest
+22:12:25.175 cuckoo
+22:12:25.176 Tue Aug 15 22:12:25 PKT 2023_GET_GetALlItemsRequest
+22:20:53.229 cuckoo
+22:20:53.232 Tue Aug 15 22:20:53 PKT 2023_GET_GetALlItemsRequest
+22:20:53.271 HikariPool-1 - Starting...
+22:20:54.291 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60541955
+22:20:54.306 HikariPool-1 - Start completed.
+22:23:09.371 cuckoo
+22:23:09.386 Tue Aug 15 22:23:09 PKT 2023_GET_GetALlItemsRequest
+22:23:09.413 HikariPool-1 - Starting...
+22:23:10.204 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@652ad196
+22:23:10.204 HikariPool-1 - Start completed.
+22:23:18.601 cuckoo
+22:23:18.601 Tue Aug 15 22:23:18 PKT 2023_GET_GetALlItemsRequest
+22:31:21.174 cuckoo
+22:31:21.176 Tue Aug 15 22:31:21 PKT 2023_GET_GetALlItemsRequest
+22:31:21.200 HikariPool-1 - Starting...
+22:31:21.804 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45781f5f
+22:31:21.806 HikariPool-1 - Start completed.
+22:31:32.477 cuckoo
+22:31:32.477 Tue Aug 15 22:31:32 PKT 2023_GET_GetALlItemsRequest
+22:31:37.134 cuckoo
+22:31:37.134 Tue Aug 15 22:31:37 PKT 2023_GET_GetALlItemsRequest
+23:22:52.452 HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m29s832ms468µs700ns).
+23:28:08.366 Cache 'itemCache' created in EhcacheManager.
+23:28:08.406 cuckoo
+23:28:08.406 Tue Aug 15 23:28:08 PKT 2023_GET_GetALlItemsRequest
+23:28:08.480 HikariPool-1 - Starting...
+23:28:09.841 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6349e7a4
+23:28:09.841 HikariPool-1 - Start completed.
+23:28:21.168 Cache 'itemCache' created in EhcacheManager.
+23:28:21.169 cuckoo
+23:28:21.169 Tue Aug 15 23:28:21 PKT 2023_GET_GetALlItemsRequest
+23:30:08.202 Cache 'itemCache' created in EhcacheManager.
+23:30:08.210 Tue Aug 15 23:30:08 PKT 2023_GET_GettingItemByIDRequest
+23:30:15.381 Cache 'itemCache' created in EhcacheManager.
+23:30:15.381 Tue Aug 15 23:30:15 PKT 2023_GET_GettingItemByIDRequest
+23:30:21.569 Cache 'itemCache' created in EhcacheManager.
+23:30:21.569 Tue Aug 15 23:30:21 PKT 2023_GET_GettingItemByIDRequest
+23:33:05.854 Tue Aug 15 23:33:05 PKT 2023_GET_GettingItemByIDRequest
+23:33:05.875 HikariPool-2 - Starting...
+23:33:07.115 HikariPool-2 - Exception during pool initialization.
+java.sql.SQLNonTransientConnectionException: Data source rejected establishment of connection,  message from server: "Too many connections"
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at com.example.project.Services.Db.getDataSource(Db.java:29)
+	at com.example.project.Services.UserService.getUser(UserService.java:19)
+	at com.example.project.Auth.authorize(Auth.java:24)
+	at com.example.project.Resources.InventoryResource.FetchById(InventoryResource.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:146)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:189)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:93)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:478)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:400)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:261)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:240)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:697)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:357)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:311)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+23:33:07.132 Tue Aug 15 23:33:07 PKT 2023_GET_Unauthorized Access
+23:33:31.833 Tue Aug 15 23:33:31 PKT 2023_GET_GettingItemByIDRequest
+23:33:31.859 HikariPool-1 - Starting...
+23:33:32.462 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5812b861
+23:33:32.466 HikariPool-1 - Start completed.
+23:33:42.946 cuckoo
+23:33:42.947 Tue Aug 15 23:33:42 PKT 2023_GET_GetALlItemsRequest
+23:33:51.355 cuckoo
+23:33:51.355 Tue Aug 15 23:33:51 PKT 2023_GET_GetALlItemsRequest
+23:37:40.884 cuckoo
+23:37:40.885 Tue Aug 15 23:37:40 PKT 2023_GET_GetALlItemsRequest
+23:37:40.962 HikariPool-1 - Starting...
+23:37:42.567 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@536e1c96
+23:37:42.574 HikariPool-1 - Start completed.
+23:37:58.815 Tue Aug 15 23:37:58 PKT 2023_GET_GettingItemByIDRequest
+23:40:24.601 Tue Aug 15 23:40:24 PKT 2023_GET_GettingItemByIDRequest
+23:40:24.629 HikariPool-1 - Starting...
+23:40:25.267 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e82848a
+23:40:25.270 HikariPool-1 - Start completed.
+23:40:33.487 cuckoo
+23:40:33.487 Tue Aug 15 23:40:33 PKT 2023_GET_GetALlItemsRequest
+23:43:18.426 cuckoo
+23:43:18.430 Tue Aug 15 23:43:18 PKT 2023_GET_GetALlItemsRequest
+23:43:18.494 HikariPool-1 - Starting...
+23:43:19.319 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51d7e5f8
+23:43:19.322 HikariPool-1 - Start completed.
+23:43:26.634 cuckoo
+23:43:26.634 Tue Aug 15 23:43:26 PKT 2023_GET_GetALlItemsRequest
+23:44:43.732 cuckoo
+23:44:43.737 Tue Aug 15 23:44:43 PKT 2023_GET_GetALlItemsRequest
+23:44:43.824 HikariPool-1 - Starting...
+23:44:45.855 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@138ee4a5
+23:44:45.863 HikariPool-1 - Start completed.
+23:45:05.885 cuckoo
+23:45:05.885 Tue Aug 15 23:45:05 PKT 2023_GET_GetALlItemsRequest
+23:45:12.251 Tue Aug 15 23:45:12 PKT 2023_GET_GettingItemByIDRequest
+23:46:28.679 cuckoo
+23:46:28.682 Tue Aug 15 23:46:28 PKT 2023_GET_GetALlItemsRequest
+23:46:28.717 HikariPool-1 - Starting...
+23:46:29.795 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@185e8e6a
+23:46:29.799 HikariPool-1 - Start completed.
+23:46:44.963 Tue Aug 15 23:46:44 PKT 2023_GET_GettingItemByIDRequest
+23:48:01.301 cuckoo
+23:48:01.301 Tue Aug 15 23:48:01 PKT 2023_GET_GetALlItemsRequest
+23:48:01.360 HikariPool-2 - Starting...
+23:48:03.084 HikariPool-2 - Exception during pool initialization.
+java.sql.SQLNonTransientConnectionException: Data source rejected establishment of connection,  message from server: "Too many connections"
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at com.example.project.commons.Db.getDataSource(Db.java:29)
+	at com.example.project.Services.UserService.getUser(UserService.java:20)
+	at com.example.project.commons.Auth.authorize(Auth.java:24)
+	at com.example.project.Resources.InventoryResource.getAllItems(InventoryResource.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:146)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:189)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:93)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:478)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:400)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:261)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:240)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:697)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:357)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:311)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+23:48:03.085 Tue Aug 15 23:48:03 PKT 2023_GET_Unauthorized Access
+23:48:28.575 cuckoo
+23:48:28.582 Tue Aug 15 23:48:28 PKT 2023_GET_GetALlItemsRequest
+23:48:28.658 HikariPool-1 - Starting...
+23:48:30.624 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee12a1d
+23:48:30.632 HikariPool-1 - Start completed.
+23:48:55.767 Tue Aug 15 23:48:55 PKT 2023_GET_GettingItemByIDRequest
+23:49:02.497 Tue Aug 15 23:49:02 PKT 2023_GET_GettingItemByIDRequest
+23:50:52.351 Tue Aug 15 23:50:52 PKT 2023_GET_GettingItemByIDRequest
+23:50:52.423 HikariPool-1 - Starting...
+23:50:53.868 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46a96d5
+23:50:53.876 HikariPool-1 - Start completed.
+23:51:47.150 Tue Aug 15 23:51:47 PKT 2023_GET_GettingItemByIDRequest
+23:51:47.174 HikariPool-2 - Starting...
+23:51:48.387 HikariPool-2 - Exception during pool initialization.
+java.sql.SQLNonTransientConnectionException: Data source rejected establishment of connection,  message from server: "Too many connections"
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at com.example.project.commons.Db.getDataSource(Db.java:29)
+	at com.example.project.Services.UserService.getUser(UserService.java:20)
+	at com.example.project.commons.Auth.authorize(Auth.java:24)
+	at com.example.project.Resources.InventoryResource.FetchById(InventoryResource.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:146)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:189)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:93)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:478)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:400)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:261)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:240)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:697)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:357)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:311)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+23:51:48.417 Tue Aug 15 23:51:48 PKT 2023_GET_Unauthorized Access
+23:52:14.565 Tue Aug 15 23:52:14 PKT 2023_GET_GettingItemByIDRequest
+23:52:14.605 HikariPool-1 - Starting...
+23:52:15.713 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e82848a
+23:52:15.721 HikariPool-1 - Start completed.
+23:52:26.977 Tue Aug 15 23:52:26 PKT 2023_GET_GettingItemByIDRequest
+23:52:55.811 Tue Aug 15 23:52:55 PKT 2023_GET_GettingItemByIDRequest
+23:52:58.624 Tue Aug 15 23:52:58 PKT 2023_GET_GettingItemByIDRequest
+23:53:02.731 cuckoo
+23:53:02.731 Tue Aug 15 23:53:02 PKT 2023_GET_GetALlItemsRequest
+23:53:11.860 Tue Aug 15 23:53:11 PKT 2023_GET_GettingItemByIDRequest
+23:53:35.300 Tue Aug 15 23:53:35 PKT 2023_GET_GettingItemByIDRequest
+23:54:49.026 cuckoo
+23:54:49.035 Tue Aug 15 23:54:49 PKT 2023_GET_GetALlItemsRequest
+23:54:49.097 HikariPool-1 - Starting...
+23:54:50.689 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@49af794f
+23:54:50.705 HikariPool-1 - Start completed.
+23:55:03.045 Tue Aug 15 23:55:03 PKT 2023_GET_GettingItemByIDRequest
+23:55:26.558 Tue Aug 15 23:55:26 PKT 2023_GET_GettingItemByIDRequest
+23:57:29.486 cuckoo
+23:57:29.493 Tue Aug 15 23:57:29 PKT 2023_GET_GetALlItemsRequest
+23:57:29.552 HikariPool-2 - Starting...
+23:57:31.133 HikariPool-2 - Exception during pool initialization.
+java.sql.SQLNonTransientConnectionException: Data source rejected establishment of connection,  message from server: "Too many connections"
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at com.example.project.commons.Db.getDataSource(Db.java:29)
+	at com.example.project.Services.UserService.getUser(UserService.java:20)
+	at com.example.project.commons.Auth.authorize(Auth.java:24)
+	at com.example.project.Resources.InventoryResource.getAllItems(InventoryResource.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:146)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:189)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:93)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:478)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:400)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:261)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:240)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:697)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:357)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:311)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+23:57:31.142 Tue Aug 15 23:57:31 PKT 2023_GET_Unauthorized Access
+23:58:39.382 Tue Aug 15 23:58:39 PKT 2023_GET_GetALlItemsRequest
+23:58:39.463 HikariPool-1 - Starting...
+23:58:40.949 HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee12a1d
+23:58:40.963 HikariPool-1 - Start completed.
+23:58:56.659 Tue Aug 15 23:58:56 PKT 2023_GET_GetItemsByCategoryRequest

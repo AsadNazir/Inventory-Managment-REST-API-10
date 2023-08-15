@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.project.commons;
 
 import com.example.project.Domain.User;
 import com.example.project.Services.UserService;

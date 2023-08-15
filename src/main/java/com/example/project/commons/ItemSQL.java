@@ -1,4 +1,4 @@
-package com.example.project.Services;
+package com.example.project.commons;
 
 public class ItemSQL {
     public static final String insert = "INSERT INTO item (item_name, item_quantity, item_category_id, item_location_id) VALUES (?, ?, ?, ?)";

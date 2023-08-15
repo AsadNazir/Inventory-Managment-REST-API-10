@@ -2,7 +2,7 @@ package com.example.project;
 
 import com.example.project.Domain.User;
 import com.example.project.Services.UserService;
-import jakarta.ws.rs.core.Response;
+import com.example.project.commons.Auth;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -18,9 +18,9 @@ class AuthTest {
     void testAuthorizeWithValidUserAndRole() {
         UserService userService = mock(UserService.class);
         when(userService.getUser(any(String.class), any(String.class)))
-                .thenReturn(new User(1, "username", "password", "admin"));
+                .thenReturn(new User(1, "username1", "password1", "admin"));
 
-        String authHeader = "Basic " + Base64.getEncoder().encodeToString("username:password".getBytes());
+        String authHeader = "Basic " + Base64.getEncoder().encodeToString("username1:password1".getBytes());
         List<String> roles = Arrays.asList("admin");
 
         assertTrue(Auth.authorize(roles, authHeader));
@@ -47,5 +47,4 @@ class AuthTest {
         assertFalse(Auth.authorize(roles, authHeader));
     }
 
-    // Additional tests as needed
 }

@@ -1,8 +1,10 @@
 package com.example.project.Resources;
 
-import com.example.project.Auth;
+import com.example.project.commons.Auth;
 import com.example.project.Domain.Item;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.core.Context;
@@ -14,11 +16,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Date;
-
-
+import java.util.List;
 
 @Path("/")
 public class InventoryResource {
+    private static Cache<Integer, Item> cache = Caffeine.newBuilder().maximumSize(100).build();;
+    public InventoryResource() {
+        System.out.println("Created");
+    }
+
+
     private final Logger logger = LoggerFactory.getLogger(InventoryResource.class);
     //1.
     @GET
@@ -32,8 +39,10 @@ public class InventoryResource {
         boolean isAuthorized = Auth.authorize(Arrays.asList("admin", "user"), authHeader);
         if (isAuthorized) {
             try {
-                InventoryService I = new InventoryService();
-                return Response.status(Response.Status.OK).entity(new InventoryService().getRecordbyId(id)).build();
+
+                InventoryService I = new InventoryService(cache);
+
+                return Response.status(Response.Status.OK).entity(I.getRecordbyId(id)).build();
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
             }
@@ -50,14 +59,13 @@ public class InventoryResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllItems(@Context ContainerRequestContext Rq) {
 
-        logger.info("cuckoo");
         setLogMessage("GetALlItemsRequest", "GET");
         //Auth
         final String authHeader = Rq.getHeaderString("Authorization");
         boolean isAuthorized = Auth.authorize(Arrays.asList("admin", "user"), authHeader);
         if (isAuthorized) {
             try {
-                InventoryService I = new InventoryService();
+                InventoryService I = new InventoryService(cache);
                 return Response.status(Response.Status.OK).entity(I.getAll()).build();
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
@@ -79,8 +87,8 @@ public class InventoryResource {
         boolean isAuthorized = Auth.authorize(Arrays.asList("admin", "user"), authHeader);
         if (isAuthorized) {
             try {
-                InventoryService I = new InventoryService();
-                return Response.status(Response.Status.OK).entity(new InventoryService().getItemsByCategory(id)).build();
+                InventoryService I = new InventoryService(cache);
+                return Response.status(Response.Status.OK).entity(I.getItemsByCategory(id)).build();
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
             }
@@ -101,8 +109,8 @@ public class InventoryResource {
         boolean isAuthorized = Auth.authorize(Arrays.asList("admin", "user"), authHeader);
         if (isAuthorized) {
             try {
-                InventoryService I = new InventoryService();
-                return Response.status(Response.Status.OK).entity(new InventoryService().getItemsByLocation(id)).build();
+                InventoryService I = new InventoryService(cache);
+                return Response.status(Response.Status.OK).entity(I.getItemsByLocation(id)).build();
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
             }
@@ -124,8 +132,8 @@ public class InventoryResource {
         boolean isAuthorized = Auth.authorize(Arrays.asList("admin", "user"), authHeader);
         if (isAuthorized) {
             try {
-                InventoryService I = new InventoryService();
-                return Response.status(Response.Status.OK).entity(I.getAll()).build();
+                InventoryService I = new InventoryService(cache);
+                return Response.status(Response.Status.OK).entity(I.getItemByLocationAndCategory(location,category)).build();
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
             }
@@ -145,14 +153,14 @@ public class InventoryResource {
 
         setLogMessage("AddItemRequest", "POST");
         final String authHeader = Rq.getHeaderString("Authorization");
-        boolean isAuthorized = Auth.authorize(Arrays.asList("admin"), authHeader);
+        boolean isAuthorized = Auth.authorize(List.of("admin"), authHeader);
 
         if (isAuthorized) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 Item newItem = objectMapper.readValue(jsonData, Item.class);
 
-                return Response.status(Response.Status.OK).entity(new InventoryService().InsertItem(newItem)).build();
+                return Response.status(Response.Status.OK).entity(new InventoryService(cache).InsertItem(newItem)).build();
 
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
@@ -171,14 +179,14 @@ public class InventoryResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response UpdateInventoryItem(String jsonData, @PathParam("id") int id, @Context ContainerRequestContext Rq) {
         final String authHeader = Rq.getHeaderString("Authorization");
-        boolean isAuthorized = Auth.authorize(Arrays.asList("admin"), authHeader);
+        boolean isAuthorized = Auth.authorize(List.of("admin"), authHeader);
 
         setLogMessage("UpdateItemRequest", "PUT");
         if (isAuthorized) {
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 Item newItem = objectMapper.readValue(jsonData, Item.class);
-                return Response.status(Response.Status.OK).entity(new InventoryService().updateItem(id, newItem)).build();
+                return Response.status(Response.Status.OK).entity(new InventoryService(cache).updateItem(id, newItem)).build();
 
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
@@ -198,11 +206,11 @@ public class InventoryResource {
 
         setLogMessage("DeleteItemRequest", "DELETE");
         final String authHeader = Rq.getHeaderString("Authorization");
-        boolean isAuthorized = Auth.authorize(Arrays.asList("admin"), authHeader);
+        boolean isAuthorized = Auth.authorize(List.of("admin"), authHeader);
 
         if (isAuthorized) {
             try {
-                return Response.status(Response.Status.OK).entity(new InventoryService().deleteItem(id)).build();
+                return Response.status(Response.Status.OK).entity(new InventoryService(cache).deleteItem(id)).build();
 
             } catch (Exception E) {
                 return Response.status(Response.Status.BAD_REQUEST).entity(E.getMessage()).build();
@@ -216,10 +224,7 @@ public class InventoryResource {
 
     private void setLogMessage(String Msg, String type) {
         //Logger
-
-
-
-        logger.info(new Date().toString() + "_" + type + "_" + Msg);
+        logger.info(new Date() + "_" + type + "_" + Msg);
     }
 
 
